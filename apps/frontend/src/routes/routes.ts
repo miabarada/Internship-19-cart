@@ -5,5 +5,6 @@ export const routes: RouteType = {
    WELCOME_PAGE: "/",
    LOGIN_PAGE: "/login",
    REGISTER_PAGE: "/register",
-   HOME: "/home"
+   HOME: "/home",
+   ADMIN: "/admin"
 }
