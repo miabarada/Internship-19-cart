@@ -2,6 +2,10 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { TransformInterceptor } from './transform.interceptor';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { ValidationPipe } from '@nestjs/common';
+
+console.log('DATABASE_URL:', process.env.DATABASE_URL);
+console.log('JWT', process.env.JWT_SECRET);
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -9,6 +13,7 @@ async function bootstrap() {
   app.enableCors();
   app.setGlobalPrefix('/api');
   app.useGlobalInterceptors(new TransformInterceptor());
+  app.useGlobalPipes(new ValidationPipe)
 
   const config = new DocumentBuilder()
     .setTitle('E-commerce app API')

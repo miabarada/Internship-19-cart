@@ -1,26 +1,76 @@
-import { Injectable } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { BadRequestException, ForbiddenException, Injectable } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
+import * as bcrypt from 'bcryptjs';
+import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class UserService {
-  create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+  constructor(private readonly prisma: PrismaService, private readonly jwtService: JwtService) {}
+
+  async register(email: string, password: string, fullName: string) {
+    const existingUser = await this.prisma.user.findUnique({
+      where: {
+        email,
+      },
+    });
+
+    if (existingUser) {
+      throw new BadRequestException('User already exists');
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10)
+
+    const user = await this.prisma.user.create({
+      data: {
+        email,
+        password: hashedPassword,
+        fullName
+      }
+    })
+
+    const payload = {
+      id: user.id,
+      email: user.email,
+      isAdmin: user.isAdmin
+    }
+
+    return {
+      token: this.jwtService.sign(payload),
+      user: {
+        email: user.email,
+        fullName: user.fullName,
+        isAdmin: user.isAdmin
+      }
+    }
   }
 
-  findAll() {
-    return `This action returns all user`;
-  }
+  async login (email: string, password: string) {
+    const user = await this.prisma.user.findUnique({
+      where: {
+        email,
+      },
+    });
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
-  }
+    if (!user)
+      throw new BadRequestException("User does not exist")
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
-  }
+    const isPasswordValid = await bcrypt.compare(password, user.password);
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+    if (!isPasswordValid)
+      throw new ForbiddenException('Password not valid!')
+
+    const payload = {
+      id: user.id,
+      email: user.email,
+      isAdmin: user.isAdmin
+    }
+
+    return {
+      token: this.jwtService.sign(payload),
+      user: {
+        email: user.email,
+        isAdmin: user.isAdmin
+      }
+    }
   }
 }
