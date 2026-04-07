@@ -1,14 +1,18 @@
 {
   "devDependencies": {
+    "sass": "^1.99.0",
     "turbo": "^2.9.4"
   },
   "scripts": {
-    "dev":"turbo run dev",
-    "build":  "turbo run build",
+    "dev": "turbo run dev",
+    "build": "turbo run build",
     "start": "node apps/backend/dist/src/main.js"
   },
   "workspaces": [
     "apps/*"
   ],
-  "packageManager": "npm@11.12.1"
+  "packageManager": "npm@11.12.1",
+  "dependencies": {
+    "react-router-dom": "^7.14.0"
+  }
 }

@@ -1,0 +1,50 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--background-color);
+}
+
+.logo {
+  width: 33px;
+  height: 33px;
+  background-image: url(../../assets/cart_logo.svg);
+  animation: spinMove 2s ease forwards;
+  position: absolute;
+  top: 420px;
+  left: 184px;
+}
+
+.title {
+  margin-left: 7px;
+  width: 88px;
+  height: 39px;
+  background-image: url(../../assets/brand_name.svg);
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+  animation-delay: 1.6s;
+  position: absolute;
+  top: 417px;
+  left: 177px;
+}
+
+@keyframes spinMove {
+   0% {
+      transform: rotate(0deg) translateX(0);
+   }
+
+   60% {
+      transform: rotate(360deg) translateX(0);
+   }
+
+   100% {
+      transform: rotate(360deg) translateX(-40px);
+   }
+}
+
+@keyframes fadeIn {
+   to {
+      opacity: 1;
+   }
+}
