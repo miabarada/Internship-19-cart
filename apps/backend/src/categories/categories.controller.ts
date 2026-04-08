@@ -1,15 +1,17 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, ParseIntPipe, UseGuards } from '@nestjs/common';
 import { CategoriesService } from './categories.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { ApiResponse } from '@nestjs/swagger';
 import { Category } from './entities/category.entity';
+import { AdminAuthGuard } from '../user/admin-auth.guard';
 
 @Controller('categories')
 export class CategoriesController {
   constructor(private readonly categoriesService: CategoriesService) {}
 
+  @UseGuards(AdminAuthGuard)
   @Post()
-  @ApiResponse({ type: [Category] })
+  @ApiResponse({ type: Category })
   create(@Body() createCategoryDto: CreateCategoryDto) {
     return this.categoriesService.create(createCategoryDto);
   }
@@ -21,11 +23,12 @@ export class CategoriesController {
   }
 
   @Get(':id')
-  @ApiResponse({ type: [Category] })
+  @ApiResponse({ type: Category })
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.categoriesService.findOne(id);
   }
 
+  @UseGuards(AdminAuthGuard)
   @Delete(':id')
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.categoriesService.remove(id);
