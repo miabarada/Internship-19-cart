@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { isAuthenticated } from "../utils/isAuth.util";
-import { routes } from "./routes";
+import { isAuthenticated } from "../../utils/isAuth.util";
+import { routes } from "../../routes/routes";
 
 export function ProtectedRoute() {
    if (!isAuthenticated()) {

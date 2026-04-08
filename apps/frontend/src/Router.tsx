@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { routes } from "./routes/routes"
 import { WelcomePage } from "./pages/WelcomePage/WelcomePage"
-import { PublicRoute } from "./routes/PublicRoute"
+import { PublicRoute } from "./components/Routes/PublicRoute"
 import { LoginPage } from "./pages/LoginPage/LoginPage"
 import { Register } from "./pages/RegisterPage/RegisterPage"
 
