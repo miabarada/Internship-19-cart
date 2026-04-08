@@ -36,7 +36,7 @@ model User {
 model Category {
   id              Int           @id @default(autoincrement())
   name            String        @unique
-  priducts        Product[]
+  products        Product[]
 }
 
 model Product {
