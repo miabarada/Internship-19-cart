@@ -10,5 +10,6 @@ export const routes: RouteType = {
    SEARCH_PAGE: "/search",
    FAVORITES_PAGE: "/favorites",
    CHECKOUT_PAGE: "/checkout",
-   PROFILE__PAGE: "/profile"
+   PROFILE__PAGE: "/profile",
+   NOTIFICATION_PAGE: "/notifications"
 }

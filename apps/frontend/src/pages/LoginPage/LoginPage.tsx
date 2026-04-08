@@ -3,6 +3,7 @@ import styles from './LoginPage.module.scss'
 import { Link, useNavigate } from 'react-router-dom'
 import { routes } from '../../routes/routes'
 import { Navbar } from '../../components/Navbar/Navbar'
+import { Header } from '../../components/Header/Header'
 
 export function LoginPage() {
    const [email, setEmail] = useState('')
