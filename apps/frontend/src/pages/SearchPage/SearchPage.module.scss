@@ -1,0 +1,47 @@
+.container {
+   padding: 80px 0;
+}
+
+.searchBar {
+   display: flex;
+   flex-direction: row;
+   gap: 8px;
+   background-color: var(--photo-background);
+   align-items: center;
+   width: 100%;
+   padding: 0 16px;
+   border-radius: 8px;
+}
+
+.searchBar input {
+   border: none;
+   background-color: var(--photo-background);
+   font-size: 16px;
+   padding: 13px 0
+}
+
+.searchBar input:focus {
+   border: none;
+   outline: none;
+}
+
+.searchIcon {
+   opacity: 0.6;
+}
+
+.searchBarContainer {
+   padding: 21px 28px;
+   background-color: var(--background-color);
+   display: flex;   
+   position: fixed;
+   z-index: 1000;
+   width: 100%;
+}
+
+.products {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 27px;
+   padding: 0 32px;
+   padding-bottom: 0;
+}

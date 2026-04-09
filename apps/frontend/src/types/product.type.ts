@@ -5,4 +5,8 @@ type Product = {
    price: number
    images: string[]
    colors: string[]
+   category: {
+      id: number
+      name: string
+   }
 }

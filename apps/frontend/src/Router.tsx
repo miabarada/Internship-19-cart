@@ -7,6 +7,7 @@ import { Register } from "./pages/RegisterPage/RegisterPage"
 import { ProtectedRoute } from "./components/Routes/ProtectedRoute"
 import { MobileLayout } from "./components/MobileLayout/MobileLayout"
 import { HomePage } from "./pages/HomePage/HomePage"
+import { SearchPage } from "./pages/SearchPage/SearchPage"
 
 export const Router = () => {
    return (
@@ -22,6 +23,7 @@ export const Router = () => {
             <Route element={<ProtectedRoute />}>
                <Route element={<MobileLayout />}>
                   <Route path={routes.HOME} element={<HomePage />}/>
+                  <Route path={routes.SEARCH_PAGE} element={<SearchPage />}/>
                </Route>   
             </Route>
          </Routes>
