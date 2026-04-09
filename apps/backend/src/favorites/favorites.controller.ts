@@ -23,7 +23,7 @@ export class FavoritesController {
   }
 
   @Delete(':productId')
-  remove(@Param('id', ParseIntPipe) id: number, @Request() req) {
+  remove(@Param('productId', ParseIntPipe) id: number, @Request() req) {
     const userId = req.user.id
     return this.favoritesService.remove(+id, userId);
   }

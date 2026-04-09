@@ -27,7 +27,7 @@ export function LoginPage() {
          if (!response.ok)
             throw new Error(data.message || 'Login not successful')
 
-         localStorage.setItem('token', data.token)
+         localStorage.setItem('token', data.data.token)
 
          const isAdmin = data.user?.isAdmin;
          
@@ -41,6 +41,11 @@ export function LoginPage() {
          setError(err.message)
       }
    }
+
+   console.log({
+      email,
+      password
+   })
 
    return (
       <div className={styles.container}>

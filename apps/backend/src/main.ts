@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { TransformInterceptor } from './transform.interceptor';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
+import { join } from 'path';
 
 console.log('DATABASE_URL:', process.env.DATABASE_URL);
 console.log('JWT', process.env.JWT_SECRET);

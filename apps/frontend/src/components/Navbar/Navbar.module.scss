@@ -9,5 +9,9 @@
    left: 0;
    background-color: var(--background-color);
    z-index: 1000;
-   margin: 23px 0;
+   padding: 23px 0;
+}
+
+.inactive {
+   opacity: 0.6;
 }

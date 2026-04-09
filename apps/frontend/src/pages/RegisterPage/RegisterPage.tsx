@@ -36,7 +36,7 @@ export function Register() {
             throw new Error(data.message || 'Registration not successful')
          }
 
-         localStorage.setItem('token', data.token)
+         localStorage.setItem('token', data.data.token)
 
          navigate(routes.HOME)
          window.location.reload()

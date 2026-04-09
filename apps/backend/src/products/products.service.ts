@@ -14,7 +14,7 @@ constructor(private readonly prisma: PrismaService) {}
   }
 
   async findAll(query) {
-    const { page = 1, limit = 10, search, category} = query;
+    const { search, category} = query;
 
     return this.prisma.product.findMany({
       where: {
@@ -22,12 +22,8 @@ constructor(private readonly prisma: PrismaService) {}
           contains: search,
           mode: 'insensitive'
         } : undefined,
-        category: category ? {
-          name: category
-        } : undefined
+        categoryId: category ? Number(category) : undefined
       },
-      skip: (page -1) * limit,
-      take: Number(limit),
       include: { category:true }
     });
   }

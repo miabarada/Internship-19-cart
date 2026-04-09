@@ -8,7 +8,16 @@ export function ProductCard({ id, name, description, price, images, colors, isFa
 
    return (
       <div className={styles.productCard}>
-         <img src={images[0]} className={styles.image} />
+         <div className={styles.topContainer}>
+            {isFavorite !== undefined && (
+               <button 
+                  onClick={handleClick}
+                  className={`${isFavorite ? styles.favorite : styles.notFavorite}`}></button>
+            )}
+            <div className={styles.imageContainer}>
+               <img src={images[0]} />
+            </div>
+         </div>
          <div className={styles.information}>
             <div className={styles.title}>{name}</div>
             <div className={styles.description}>{description}</div>
@@ -22,11 +31,6 @@ export function ProductCard({ id, name, description, price, images, colors, isFa
                ))}
             </div>
          </div>
-         {isFavorite !== undefined && (
-            <button 
-               onClick={handleClick}
-               className={`${isFavorite ? styles.favorite : styles.notFavorite}`}></button>
-         )}
       </div>
    )
 }
