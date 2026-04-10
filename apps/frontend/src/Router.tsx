@@ -8,6 +8,7 @@ import { ProtectedRoute } from "./components/Routes/ProtectedRoute"
 import { MobileLayout } from "./components/MobileLayout/MobileLayout"
 import { HomePage } from "./pages/HomePage/HomePage"
 import { SearchPage } from "./pages/SearchPage/SearchPage"
+import { FavoritesPage } from "./pages/FavoritesPage/FavoritesPage"
 
 export const Router = () => {
    return (
@@ -24,6 +25,7 @@ export const Router = () => {
                <Route element={<MobileLayout />}>
                   <Route path={routes.HOME} element={<HomePage />}/>
                   <Route path={routes.SEARCH_PAGE} element={<SearchPage />}/>
+                  <Route path={routes.FAVORITES_PAGE} element={<FavoritesPage />}/>
                </Route>   
             </Route>
          </Routes>
