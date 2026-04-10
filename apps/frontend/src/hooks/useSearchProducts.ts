@@ -20,7 +20,7 @@ export function useSearchProducts(search: string, categoryId: number | null) {
       }
       
       fetchProducts()
-   }, [search, loading])
+   }, [search, categoryId])
 
    return { products, loading }
 }

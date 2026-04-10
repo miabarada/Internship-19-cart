@@ -1,10 +1,15 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import styles from './SearchPage.module.scss'
 import { useCategories } from '../../hooks/useCategories'
 import { useSearchProducts } from '../../hooks/useSearchProducts'
 import { SearchIcon } from '../../icons/SearchIcon/SearchIcon'
 import { CategoryButton } from '../../components/CategoryButton/CategoryButon'
 import { ProductCard } from '../../components/ProductCard/ProductCard'
+import { useNavigate } from 'react-router-dom'
+import { routes } from '../../routes/routes'
+import { useFavorites } from '../../hooks/useFavorites'
+import { useToggleFavorite } from '../../hooks/useToggleFavorite'
+import { LoadingPage } from '../LoadingPage/LoadingPage'
 
 export function SearchPage() {
    const [search, setSearch] = useState<string>('')
@@ -12,6 +17,15 @@ export function SearchPage() {
 
    const { products, loading } = useSearchProducts(search, categoryId)
    const { categories } = useCategories()
+
+   const navigate = useNavigate()
+
+   const { favorites, setFavorites, loading: favoritesLoading } = useFavorites()
+   const { toggleFavorite } = useToggleFavorite(favorites, setFavorites)
+
+   const favoriteIds = useMemo(() => {
+         return new Set(favorites.map(f => f.productId))
+      }, [favorites])
 
    return (
       <div className={styles.container}>
@@ -40,15 +54,23 @@ export function SearchPage() {
             ))}
          </div>
 
-         <div className={styles.products}>
-            {loading ? (
-               <div>Loading...</div>
+         <div>
+            {loading || favoritesLoading ? (
+               <LoadingPage />
             ) : (
-               products.map((product: Product) => (
-                  <ProductCard
-                  key={product.id}
-                  {...product} />
-               ))
+               <div className={styles.products}>
+                  {products.map(product => (
+                     <div
+                        key={product.id}
+                        onClick={() => navigate(`${routes.PRODUCTS}/${product.id}`)}>
+                        <ProductCard
+                           {...product}
+                           isFavorite={favoriteIds.has(product.id)}
+                           onToggleFavorite={toggleFavorite}
+                        />
+                     </div> 
+                  ))}
+               </div>
             )}         
          </div>
       </div>

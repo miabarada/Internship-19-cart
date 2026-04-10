@@ -14,7 +14,7 @@ constructor(private readonly prisma: PrismaService) {}
   }
 
   async findAll(query) {
-    const { search, category} = query;
+    const { search, categoryId} = query;
 
     return this.prisma.product.findMany({
       where: {
@@ -22,7 +22,7 @@ constructor(private readonly prisma: PrismaService) {}
           contains: search,
           mode: 'insensitive'
         } : undefined,
-        categoryId: category ? Number(category) : undefined
+        categoryId: categoryId ? Number(categoryId) : undefined
       },
       include: { category:true }
     });

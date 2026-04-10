@@ -9,7 +9,7 @@ export function useProducts() {
          const res = await fetch('http://localhost:3000/products')
          const data = await res.json()
 
-         setProducts(data.data)
+         setProducts(data.data ?? data)
          setLoading(false)
       }
 

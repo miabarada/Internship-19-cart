@@ -18,6 +18,7 @@ export class FavoritesController {
 
   @Get()
   findAll(@Request() req) {
+    console.log('REQ:USER:', req.user)
     const userId = req.user.id
     return this.favoritesService.findAll(userId);
   }

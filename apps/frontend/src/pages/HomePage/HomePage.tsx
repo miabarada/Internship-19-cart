@@ -7,6 +7,7 @@ import { ProductCard } from '../../components/ProductCard/ProductCard'
 import { routes } from '../../routes/routes'
 import { useNavigate } from 'react-router-dom'
 import { SearchIcon } from '../../icons/SearchIcon/SearchIcon'
+import { LoadingPage } from '../LoadingPage/LoadingPage'
 
 export function HomePage() {
    const { products, loading: productsLoading } = useProducts()
@@ -20,7 +21,7 @@ export function HomePage() {
    }, [favorites])
 
    if (productsLoading || favoritesLoading) {
-      return <div>Loading...</div>
+      return <LoadingPage />
    }
 
    return (

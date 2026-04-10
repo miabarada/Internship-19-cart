@@ -3,12 +3,13 @@
    padding: 8px 12px;
    display: flex;
    flex-direction: row;
-   align-content: center;
+   align-items: center;
    border-radius: 20px;
    border: 1px solid var(--main-color);
    background-color: var(--background-color);
    color: var(--main-color);
    font-weight: 600;
+   justify-content: center;
 }
 
 .active {

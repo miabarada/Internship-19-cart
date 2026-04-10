@@ -8,40 +8,46 @@ export class UserService {
   constructor(private readonly prisma: PrismaService, private readonly jwtService: JwtService) {}
 
   async register(email: string, password: string, fullName: string) {
-    const existingUser = await this.prisma.user.findUnique({
-      where: {
+    try {
+      const existingUser = await this.prisma.user.findUnique({
+        where: {
         email,
-      },
-    });
+        },
+      });
 
-    if (existingUser) {
-      throw new BadRequestException('User already exists');
-    }
-
-    const hashedPassword = await bcrypt.hash(password, 10)
-
-    const user = await this.prisma.user.create({
-      data: {
-        email,
-        password: hashedPassword,
-        fullName
+      if (existingUser) {
+        throw new BadRequestException('User already exists');
       }
-    })
 
-    const payload = {
-      id: user.id,
-      email: user.email,
-      isAdmin: user.isAdmin
-    }
+      const hashedPassword = await bcrypt.hash(password, 10)
 
-    return {
-      token: this.jwtService.sign(payload),
-      user: {
+      const user = await this.prisma.user.create({
+        data: {
+          email,
+          password: hashedPassword,
+          fullName
+        }
+      })
+
+      const payload = {
+        id: user.id,
         email: user.email,
-        fullName: user.fullName,
         isAdmin: user.isAdmin
       }
+
+      return {
+        token: this.jwtService.sign(payload),
+        user: {
+          email: user.email,
+          fullName: user.fullName,
+          isAdmin: user.isAdmin
+        }
+      }
+    } catch (err) {
+      console.error('REGISTER ERROR:', err)
+      throw err
     }
+    
   }
 
   async login (email: string, password: string) {
