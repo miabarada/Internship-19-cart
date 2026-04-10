@@ -9,6 +9,7 @@ import { MobileLayout } from "./components/MobileLayout/MobileLayout"
 import { HomePage } from "./pages/HomePage/HomePage"
 import { SearchPage } from "./pages/SearchPage/SearchPage"
 import { FavoritesPage } from "./pages/FavoritesPage/FavoritesPage"
+import { ProductDetailsPage } from "./pages/ProductDetailsPage/ProductDetailsPage"
 
 export const Router = () => {
    return (
@@ -26,6 +27,7 @@ export const Router = () => {
                   <Route path={routes.HOME} element={<HomePage />}/>
                   <Route path={routes.SEARCH_PAGE} element={<SearchPage />}/>
                   <Route path={routes.FAVORITES_PAGE} element={<FavoritesPage />}/>
+                  <Route path={`${routes.PRODUCTS}/:id`} element={<ProductDetailsPage />}/>
                </Route>   
             </Route>
          </Routes>
