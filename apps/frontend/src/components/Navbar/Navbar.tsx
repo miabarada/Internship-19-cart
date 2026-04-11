@@ -19,7 +19,7 @@ export function Navbar() {
          <NavLink to={routes.FAVORITES_PAGE} className={({ isActive }) => isActive ? styles.active : styles.inactive}>
             <HeartIcon />
          </NavLink>
-         <NavLink to={routes.CHECKOUT_PAGE} className={({ isActive }) => isActive ? styles.active : styles.inactive}>
+         <NavLink to={routes.CART_PAGE} className={({ isActive }) => isActive ? styles.active : styles.inactive}>
             <CartICon />
          </NavLink>
          <NavLink to={routes.PROFILE_PAGE} className={({ isActive }) => isActive ? styles.active : styles.inactive}>

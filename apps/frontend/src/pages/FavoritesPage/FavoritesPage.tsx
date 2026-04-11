@@ -4,7 +4,6 @@ import { useToggleFavorite } from '../../hooks/useToggleFavorite'
 import styles from './FavoritesPage.module.scss'
 import { useMemo } from 'react'
 import { LoadingPage } from '../LoadingPage/LoadingPage'
-import { routes } from '../../routes/routes'
 import { ProductCard } from '../../components/ProductCard/ProductCard'
 
 export function FavoritesPage() {

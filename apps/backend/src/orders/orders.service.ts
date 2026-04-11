@@ -52,6 +52,8 @@ export class OrdersService {
       },
     });
 
+    console.log('ADD TO CART USER:', userId)
+
     return {
       statusCode: 200,
       message: 'Added to cart',
@@ -73,6 +75,9 @@ export class OrdersService {
         }
       }
     })
+
+    console.log('GET CART USER:', userId)
+    console.log('CART:', JSON.stringify(cart, null, 2))
 
     return {
       statusCode: 200,

@@ -10,6 +10,7 @@ import { HomePage } from "./pages/HomePage/HomePage"
 import { SearchPage } from "./pages/SearchPage/SearchPage"
 import { FavoritesPage } from "./pages/FavoritesPage/FavoritesPage"
 import { ProductDetailsPage } from "./pages/ProductDetailsPage/ProductDetailsPage"
+import { CartPage } from "./pages/CartPage/CartPage"
 
 export const Router = () => {
    return (
@@ -29,6 +30,7 @@ export const Router = () => {
                   <Route path={routes.FAVORITES_PAGE} element={<FavoritesPage />}/>
                   <Route path={`products/:id`} element={<ProductDetailsPage />}/>
                </Route>   
+               <Route path={routes.CART_PAGE} element={<CartPage />}/>
             </Route>
          </Routes>
       </BrowserRouter>

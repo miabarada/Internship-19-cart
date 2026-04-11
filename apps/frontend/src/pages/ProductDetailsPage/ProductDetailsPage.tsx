@@ -7,6 +7,7 @@ import { useProduct } from '../../hooks/useProduct'
 import { useAddToCart } from '../../hooks/useAddtoCart'
 import { LoadingPage } from '../LoadingPage/LoadingPage'
 import { SizeButton } from '../../components/SizeButton/SizeButton'
+import { routes } from '../../routes/routes'
 
 export function ProductDetailsPage() {
    const { id } = useParams()
@@ -34,6 +35,7 @@ export function ProductDetailsPage() {
          color,
          quantity: 1
       })
+      navigate(routes.CART_PAGE)
 
       alert("Added to cart!")
    }
