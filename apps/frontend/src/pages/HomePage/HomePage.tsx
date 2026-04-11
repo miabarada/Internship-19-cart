@@ -41,7 +41,7 @@ export function HomePage() {
             {products.map(product => (
                <div
                   key={product.id}
-                  onClick={() => navigate(`${routes.PRODUCTS}/${product.id}`)}>
+                  onClick={() => navigate(`/products/${product.id}`)}>
                   <ProductCard
                      {...product}
                      isFavorite={favoriteIds.has(product.id)}

@@ -30,7 +30,7 @@ export function FavoritesPage() {
                {favorites.map(fav => (
                   <div
                      key={fav.productId}
-                     onClick={() => navigate(`${routes.PRODUCTS}/${fav.product.id}`)}>
+                     onClick={() => navigate(`/products/${fav.product.id}`)}>
                         <ProductCard
                            {...fav.product}
                            isFavorite={favoriteIds.has(fav.product.id)}
