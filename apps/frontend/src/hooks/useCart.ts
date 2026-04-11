@@ -15,7 +15,6 @@ export function useCart() {
 
             const data = await res.json()
             setCart(data.data)
-            console.log("CART SET:", data.data)
          } catch (err){
             console.error('Failed to fetch cart', err)
             setCart(null)

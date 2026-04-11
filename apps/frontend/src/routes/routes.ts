@@ -12,5 +12,6 @@ export const routes: RouteType = {
    CHECKOUT_PAGE: "/checkout",
    PROFILE_PAGE: "/profile",
    NOTIFICATION_PAGE: "/notifications",
-   CART_PAGE: "/cart"
+   CART_PAGE: "/cart",
+   SUCCESS_PAGE: "/success"
 }

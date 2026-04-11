@@ -1,0 +1,12 @@
+.container {
+   display: flex;
+   width: 100vw;
+   height: 100vh;
+   background-color: var(--brand-color);
+   align-items: center;
+   justify-content: center;
+}
+
+.visual {
+   background-image: url(../assets/hvala.svg);
+}

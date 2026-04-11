@@ -11,6 +11,8 @@ import { SearchPage } from "./pages/SearchPage/SearchPage"
 import { FavoritesPage } from "./pages/FavoritesPage/FavoritesPage"
 import { ProductDetailsPage } from "./pages/ProductDetailsPage/ProductDetailsPage"
 import { CartPage } from "./pages/CartPage/CartPage"
+import { CheckoutPage } from "./pages/CheckoutPage/CheckoutPage"
+import { SuccessPage } from "./pages/SuccessPage/SuccessPage"
 
 export const Router = () => {
    return (
@@ -31,6 +33,8 @@ export const Router = () => {
                   <Route path={`products/:id`} element={<ProductDetailsPage />}/>
                </Route>   
                <Route path={routes.CART_PAGE} element={<CartPage />}/>
+               <Route path={routes.CHECKOUT_PAGE} element={<CheckoutPage />}/>
+               <Route path={routes.SUCCESS_PAGE} element={<SuccessPage />}/>
             </Route>
          </Routes>
       </BrowserRouter>
