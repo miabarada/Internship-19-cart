@@ -15,8 +15,8 @@ import { CheckoutPage } from "./pages/CheckoutPage/CheckoutPage"
 import { SuccessPage } from "./pages/SuccessPage/SuccessPage"
 import { ProfilePage } from "./pages/ProfilePage/ProfilePage"
 import { AdminRoute } from "./components/Routes/AdminRoute"
-import { AdminLayout } from "./components/AdminLayout/AdminLayout"
-import { AdminHome } from "./pages/AdminHome/AdminHome"
+import { AdminLayout } from "./components/Admin/AdminLayout/AdminLayout"
+import { AdminHome } from "./pages/Admin/AdminHome/AdminHome"
 
 export const Router = () => {
    return (

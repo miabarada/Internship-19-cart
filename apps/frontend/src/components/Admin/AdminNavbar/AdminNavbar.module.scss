@@ -1,0 +1,40 @@
+.navbar {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   padding: 24px 40px;
+   border-bottom: 1px solid var(--brand-color);
+   font-weight: 600;
+   color: var(--brand-color);
+}
+
+.inactive {
+   opacity: 0.6;
+   text-decoration: none;
+   color: var(--brand-color)
+}
+
+.active {
+   opacity: 1;
+   text-decoration: none;
+   color: var(--brand-color)
+}
+
+.links {
+   display: flex;
+   flex-direction: row;
+   gap: 16px;
+}
+
+@media (max-width:600px ) {
+   .navbar {
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+   }
+
+   .links {
+      flex-wrap: wrap;
+   }
+   
+}
