@@ -10,6 +10,7 @@ import { FavoritesModule } from './favorites/favorites.module';
 import { ServeStaticModule } from '@nestjs/serve-static'
 import { join } from 'path';
 import { OrdersModule } from './orders/orders.module';
+import { ProfileModule } from './profile/profile.module';
 
 @Module({
   imports: [
@@ -23,7 +24,8 @@ import { OrdersModule } from './orders/orders.module';
       rootPath: join(process.cwd(), 'images'),
       serveRoot: '/images'
     }),
-    OrdersModule
+    OrdersModule,
+    ProfileModule
   ],
   controllers: [AppController],
   providers: [AppService],
