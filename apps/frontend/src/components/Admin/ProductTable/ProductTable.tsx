@@ -5,11 +5,11 @@ export function ProductTable ({ products, onEdit, onDelete }: any) {
       <table className={styles.table}>
          <thead>
             <tr>
-               <th>Name</th>
-               <th>Price</th>
-               <th>Description</th>
-               <th>Category</th>
-               <th>Actions</th>
+               <th>Ime</th>
+               <th>Cijena</th>
+               <th>Opis</th>
+               <th>Kategorija</th>
+               <th>Radnje</th>
             </tr>
          </thead>
 

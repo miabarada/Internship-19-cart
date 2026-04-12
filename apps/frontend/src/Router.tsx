@@ -17,6 +17,7 @@ import { ProfilePage } from "./pages/ProfilePage/ProfilePage"
 import { AdminRoute } from "./components/Routes/AdminRoute"
 import { AdminLayout } from "./components/Admin/AdminLayout/AdminLayout"
 import { AdminHome } from "./pages/Admin/AdminHome/AdminHome"
+import { AdminCategories } from "./pages/Admin/CategoriesPage/CategoriesPage"
 
 export const Router = () => {
    return (
@@ -45,6 +46,7 @@ export const Router = () => {
             <Route element={<AdminRoute />}>
                <Route element={<AdminLayout />}>
                   <Route path={routes.ADMIN_HOME} element={<AdminHome />}/>
+                  <Route path={routes.ADMIN_CATEGORIES} element={<AdminCategories />}/>
                </Route>
             </Route>
          </Routes>

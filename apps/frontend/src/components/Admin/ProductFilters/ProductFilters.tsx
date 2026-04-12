@@ -4,14 +4,14 @@ export function ProductFilters({ search, setSearch, category, setCategory }: any
    return (
       <div className={styles.container}>
          <input
-            placeholder="Search products"
+            placeholder="Pretraži proizvode"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className={styles.input}
          />
 
          <input
-            placeholder="Category"
+            placeholder="Kategorija"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             className={styles.input}
