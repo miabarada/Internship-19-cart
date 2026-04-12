@@ -3,7 +3,7 @@ import { ProfileService } from './profile.service';
 import { UpdateProfileDto } from './dto/update-profile.dto';
 import { UserAuthGuard } from '../user/user-auth.guard';
 
-@Controller('user')
+@Controller('users')
 export class ProfileController {
   constructor(private readonly profileService: ProfileService) {}
 

@@ -28,14 +28,13 @@ export class ProfileService {
   }
 
   async updateMe(userId: number, dto: UpdateProfileDto) {
+    console.log('USER ID:', userId)
+    console.log('DTO:', dto)
     return this.prisma.user.update({
       where: {
         id: userId
       },
-      data: {
-        ...DOMRectReadOnly,
-        expiryDate: dto.expiryDate ? new Date(dto.expiryDate) : undefined
-      }
+      data: dto
     })
   }
 }

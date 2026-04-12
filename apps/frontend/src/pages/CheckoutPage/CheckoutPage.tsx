@@ -35,7 +35,7 @@ export function CheckoutPage() {
    const [editShipping, setEditShipping] = useState(false)
    const [editBilling, setEditBilling] = useState(false)
 
-   if (!loading) {
+   if (loading) {
       return <LoadingPage />
    }
 
@@ -200,7 +200,6 @@ export function CheckoutPage() {
          </div>
          <button
             className={styles.button}
-            disabled={!isValid}
             onClick={handleCheckout}
          >
             POTVRDI NARUDŽBU

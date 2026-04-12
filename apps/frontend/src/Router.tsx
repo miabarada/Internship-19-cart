@@ -13,6 +13,7 @@ import { ProductDetailsPage } from "./pages/ProductDetailsPage/ProductDetailsPag
 import { CartPage } from "./pages/CartPage/CartPage"
 import { CheckoutPage } from "./pages/CheckoutPage/CheckoutPage"
 import { SuccessPage } from "./pages/SuccessPage/SuccessPage"
+import { ProfilePage } from "./pages/ProfilePage/ProfilePage"
 
 export const Router = () => {
    return (
@@ -31,6 +32,7 @@ export const Router = () => {
                   <Route path={routes.SEARCH_PAGE} element={<SearchPage />}/>
                   <Route path={routes.FAVORITES_PAGE} element={<FavoritesPage />}/>
                   <Route path={`products/:id`} element={<ProductDetailsPage />}/>
+                  <Route path={routes.PROFILE_PAGE} element={<ProfilePage />}/>
                </Route>   
                <Route path={routes.CART_PAGE} element={<CartPage />}/>
                <Route path={routes.CHECKOUT_PAGE} element={<CheckoutPage />}/>

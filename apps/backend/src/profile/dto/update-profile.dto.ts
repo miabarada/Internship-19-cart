@@ -32,7 +32,7 @@ export class UpdateProfileDto{
    iban?: string;
 
    @IsOptional()
-   @IsDateString()
+   @IsString()
    expiryDate?: string;
 
    @IsOptional()
