@@ -2,8 +2,7 @@ import { useState } from 'react'
 import styles from './LoginPage.module.scss'
 import { Link, useNavigate } from 'react-router-dom'
 import { routes } from '../../routes/routes'
-import { Navbar } from '../../components/Navbar/Navbar'
-import { Header } from '../../components/Header/Header'
+import { getUser } from '../../utils/getUser'
 
 export function LoginPage() {
    const [email, setEmail] = useState('')
@@ -28,15 +27,15 @@ export function LoginPage() {
             throw new Error(data.message || 'Login not successful')
 
          localStorage.setItem('token', data.data.token)
+         localStorage.setItem('user', JSON.stringify(data.data.user))
 
-         const isAdmin = data.user?.isAdmin;
+         const user = getUser()
          
-         if(isAdmin) {
-            navigate(routes.ADMIN)
+         if(user?.isAdmin) {
+            navigate(`/${routes.ADMIN_HOME}`)
          } else {
             navigate(routes.HOME)
          }
-         window.location.reload()
       } catch (err: any) {
          setError(err.message)
       }

@@ -14,6 +14,9 @@ import { CartPage } from "./pages/CartPage/CartPage"
 import { CheckoutPage } from "./pages/CheckoutPage/CheckoutPage"
 import { SuccessPage } from "./pages/SuccessPage/SuccessPage"
 import { ProfilePage } from "./pages/ProfilePage/ProfilePage"
+import { AdminRoute } from "./components/Routes/AdminRoute"
+import { AdminLayout } from "./components/AdminLayout/AdminLayout"
+import { AdminHome } from "./pages/AdminHome/AdminHome"
 
 export const Router = () => {
    return (
@@ -37,6 +40,12 @@ export const Router = () => {
                <Route path={routes.CART_PAGE} element={<CartPage />}/>
                <Route path={routes.CHECKOUT_PAGE} element={<CheckoutPage />}/>
                <Route path={routes.SUCCESS_PAGE} element={<SuccessPage />}/>
+            </Route>
+
+            <Route element={<AdminRoute />}>
+               <Route element={<AdminLayout />}>
+                  <Route path={routes.ADMIN_HOME} element={<AdminHome />}/>
+               </Route>
             </Route>
          </Routes>
       </BrowserRouter>
