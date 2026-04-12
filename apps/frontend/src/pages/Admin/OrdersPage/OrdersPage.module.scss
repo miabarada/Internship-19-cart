@@ -1,0 +1,15 @@
+.container {
+   padding: 24px 40px;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+
+.dropdown {
+   background-color: var(--brand-color);
+   color: var(--background-color);
+   padding: 4px 12px;
+   max-width: 200px;
+   border: none;
+   border-radius: 12px;
+}
