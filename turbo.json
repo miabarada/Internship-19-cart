@@ -1,5 +1,8 @@
 {
    "$schema": "https://turborepo.org/schema.json",
+   "globalPassThroughEnv": [
+      "VITE_API_URL"
+   ],
    "tasks": {
       "dev": {
          "cache": false
@@ -7,6 +10,9 @@
       "build": {
          "dependsOn": [
             "^build"
+         ],
+         "env": [
+            "VITE_API_URL"
          ],
          "outputs": [
             "dist/**"
