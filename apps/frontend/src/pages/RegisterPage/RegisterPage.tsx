@@ -2,6 +2,7 @@ import { useState } from 'react'
 import styles from './RegisterPage.module.scss'
 import { Link, useNavigate } from 'react-router-dom'
 import { routes } from '../../routes/routes'
+const baseUrl = (import.meta as any).env.API_URL
 
 export function Register() {
    const [email, setEmail] = useState('')
@@ -24,7 +25,7 @@ export function Register() {
       setLoading(true)
 
       try {
-         const response = await fetch('${import.meta.env.API_URL}/auth/register', {
+         const response = await fetch(`${baseUrl}/auth/register`, {
             method: 'POST', 
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password, fullName})

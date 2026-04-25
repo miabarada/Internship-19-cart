@@ -3,6 +3,7 @@ import styles from './LoginPage.module.scss'
 import { Link, useNavigate } from 'react-router-dom'
 import { routes } from '../../routes/routes'
 import { getUser } from '../../utils/getUser'
+const baseUrl = (import.meta as any).env.API_URL
 
 export function LoginPage() {
    const [email, setEmail] = useState('')
@@ -15,7 +16,7 @@ export function LoginPage() {
       setError('')
 
       try {
-         const response = await fetch('${import.meta.env.API_URL}/auth/login', {
+         const response = await fetch(`${baseUrl}/auth/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
