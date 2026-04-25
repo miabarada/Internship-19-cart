@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-const baseUrl = (import.meta as any).env.API_URL
+const baseUrl = (import.meta as any).env.VITE_API_URL
 
 export function useProduct(id: string | undefined) {
    const [product, setProduct] = useState<Product>()

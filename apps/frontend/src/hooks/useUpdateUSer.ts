@@ -1,4 +1,4 @@
-const baseUrl = (import.meta as any).env.API_URL
+const baseUrl = (import.meta as any).env.VITE_API_URL
 
 export const useUpdateUser = () => {
    const updateUser = async (payload: any) => {

@@ -1,4 +1,4 @@
-const baseUrl = (import.meta as any).env.API_URL
+const baseUrl = (import.meta as any).env.VITE_API_URL
 
 export const useToggleFavorite = (favorites: any[], setFavorites: React.Dispatch<React.SetStateAction<any[]>>) => {
    const toggleFavorite = async (productId: number) => {

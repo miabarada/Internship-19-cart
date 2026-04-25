@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styles from './RegisterPage.module.scss'
 import { Link, useNavigate } from 'react-router-dom'
 import { routes } from '../../routes/routes'
-const baseUrl = (import.meta as any).env.API_URL
+const baseUrl = (import.meta as any).env.VITE_API_URL
 
 export function Register() {
    const [email, setEmail] = useState('')

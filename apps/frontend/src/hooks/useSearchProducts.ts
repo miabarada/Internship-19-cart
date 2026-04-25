@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-const baseUrl = (import.meta as any).env.API_URL
+const baseUrl = (import.meta as any).env.VITE_API_URL
 
 export function useSearchProducts(search: string, categoryId: number | null) {
    const [products, setProducts] = useState<Product[]>([])

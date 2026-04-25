@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-const baseUrl = (import.meta as any).env.API_URL
+const baseUrl = (import.meta as any).env.VITE_API_URL
 
 export function useCart() {
    const [cart, setCart] = useState<any>(null)
