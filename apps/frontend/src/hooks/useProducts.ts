@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+const baseUrl = (import.meta as any).env.API_URL
 
 export function useProducts() {
    const [products, setProducts] = useState<Product[]>([])
@@ -6,7 +7,7 @@ export function useProducts() {
 
    useEffect(() => {
       const fetchProducts = async () => {
-         const res = await fetch('http://localhost:3000/products')
+         const res = await fetch(`${baseUrl}/products`)
          const data = await res.json()
 
          setProducts(data.data ?? data)

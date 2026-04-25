@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+const baseUrl = (import.meta as any).env.API_URL
 
 export function useCart() {
    const [cart, setCart] = useState<any>(null)
@@ -13,7 +14,7 @@ export function useCart() {
       const fetchCart = async () => {
          console.log("2. fetch start")
          try {
-            const res = await fetch('http://localhost:3000/orders/cart', {
+            const res = await fetch(`${baseUrl}/orders/cart`, {
                headers: {
                   Authorization: `Bearer ${localStorage.getItem('token')}`,
                }

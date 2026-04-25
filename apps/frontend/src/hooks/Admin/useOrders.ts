@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+const baseUrl = (import.meta as any).env.API_URL
 
 export function useOrders() {
    const [orders, setOrders] = useState<any[]>([])
@@ -7,7 +8,7 @@ export function useOrders() {
    const[selectedOrder, setSelectedOrder] = useState<any>(null)
 
    const fetchOrders = async () => {
-      const res = await fetch('http://localhost:3000/orders', {
+      const res = await fetch(`${baseUrl}/orders`, {
          headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`
          }
@@ -33,7 +34,7 @@ export function useOrders() {
    }, [statusFilter, orders])
 
    const updateStatus = async (id: number, status: string) => {
-      await fetch(`http://localhost:3000/orders/${id}/status`, {
+      await fetch(`${baseUrl}/orders/${id}/status`, {
          method: "PATCH",
          headers: {
             "Content-Type": "application/json",

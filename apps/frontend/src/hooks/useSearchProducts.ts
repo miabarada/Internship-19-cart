@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+const baseUrl = (import.meta as any).env.API_URL
 
 export function useSearchProducts(search: string, categoryId: number | null) {
    const [products, setProducts] = useState<Product[]>([])
@@ -12,7 +13,7 @@ export function useSearchProducts(search: string, categoryId: number | null) {
          if (search) params.append('search', search)
          if (categoryId) params.append('categoryId', String(categoryId))
 
-         const res = await fetch(`http://localhost:3000/products?${params.toString()}`)
+         const res = await fetch(`${baseUrl}/products?${params.toString()}`)
          const data = await res.json()
 
          setProducts(data.data)

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+const baseUrl = (import.meta as any).env.API_URL
 
 const initialState = {
    name: "",
@@ -57,8 +58,8 @@ export function useProductForm(selected: any, onSuccess: () => void) {
 
       await fetch(
          isEdit
-            ? `$http://localhost:3000/products/${selected.id}`
-            : 'http://localhost:3000/products',
+            ? `${baseUrl}/products/${selected.id}`
+            : `${baseUrl}/products`,
          {
             method: isEdit ? "PUT" : "POST",
             headers: {

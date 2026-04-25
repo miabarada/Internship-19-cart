@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+const baseUrl = (import.meta as any).env.API_URL
 
 export const useUser = () => {
    const [user, setUser] = useState<User>()
@@ -7,7 +8,7 @@ export const useUser = () => {
    const fetchUser = async () => {
       try {
          const token = localStorage.getItem('token');
-         const res = await fetch('http://localhost:3000/users/me', {
+         const res = await fetch(`${baseUrl}0/users/me`, {
             headers: {
                Authorization: `Bearer ${token}`,
             }

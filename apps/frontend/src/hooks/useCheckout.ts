@@ -1,6 +1,8 @@
+const baseUrl = (import.meta as any).env.API_URL
+
 export function useCheckout() {
    const checkoutOrder = async (orderId: number, payload: any) => {
-      const res = await fetch(`http://localhost:3000/orders/${orderId}/checkout`, {
+      const res = await fetch(`${baseUrl}/orders/${orderId}/checkout`, {
          method: 'PATCH',
          headers: {
             'Content-Type': 'application/json',
@@ -10,7 +12,6 @@ export function useCheckout() {
       })
 
       const data = await res.json()
-      console.log("CART RESPONSE:", data)
       return data
    }
 

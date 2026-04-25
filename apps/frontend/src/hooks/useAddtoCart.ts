@@ -1,3 +1,5 @@
+const baseUrl = (import.meta as any).env.API_URL
+
 export function useAddToCart() {
    const addToCart = async (data: {
       productId: number, 
@@ -6,7 +8,7 @@ export function useAddToCart() {
       quantity: number
    }) => {
       try {
-         await fetch("http://localhost:3000/orders", {
+         await fetch(`${baseUrl}/orders`, {
             method: 'POST',
             headers: {
                "Content-Type": "application/json",

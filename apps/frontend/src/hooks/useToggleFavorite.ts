@@ -1,3 +1,5 @@
+const baseUrl = (import.meta as any).env.API_URL
+
 export const useToggleFavorite = (favorites: any[], setFavorites: React.Dispatch<React.SetStateAction<any[]>>) => {
    const toggleFavorite = async (productId: number) => {
       const isFavorite = favorites.some(f => f.productId === productId)
@@ -10,14 +12,14 @@ export const useToggleFavorite = (favorites: any[], setFavorites: React.Dispatch
 
       try {
          if (isFavorite) {
-            await fetch(`http://localhost:3000/favorites/${productId}`, {
+            await fetch(`${baseUrl}/favorites/${productId}`, {
                method: 'DELETE', 
                headers: {
                   Authorization: `Bearer ${localStorage.getItem('token')}`
                }
             })
          } else {
-            await fetch(`http://localhost:3000/favorites/${productId}`, {
+            await fetch(`${baseUrl}/favorites/${productId}`, {
                method: 'POST', 
                headers: {
                   Authorization: `Bearer ${localStorage.getItem('token')}`

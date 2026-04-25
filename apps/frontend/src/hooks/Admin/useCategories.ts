@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+const baseUrl = (import.meta as any).env.API_URL
 
 export function useCategories() {
    const [categories, setCategories] = useState<any[]>([])
@@ -8,7 +9,7 @@ export function useCategories() {
       setLoading(true)
 
       try {
-         const res = await fetch('http://localhost:3000/categories')
+         const res = await fetch(`${baseUrl}/categories`)
          const data = await res.json()
 
          setCategories(data.data ?? data)
@@ -24,7 +25,7 @@ export function useCategories() {
    const createCategory = async (name: string) => {
       const token = localStorage.getItem('token')
 
-      await fetch('http://localhost:3000/categories', {
+      await fetch(`${baseUrl}/categories`, {
          method: "POST", 
          headers: {
             "Content-Type": "application/json",
@@ -40,7 +41,7 @@ export function useCategories() {
       const token = localStorage.getItem('token')
 
       try {
-         const res = await fetch(`http://localhost:3000/categories/${id}`, {
+         const res = await fetch(`${baseUrl}categories/${id}`, {
             method: "DELETE", 
             headers: {
                Authorization: `Bearer ${token}`

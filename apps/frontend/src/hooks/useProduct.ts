@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+const baseUrl = (import.meta as any).env.API_URL
 
 export function useProduct(id: string | undefined) {
    const [product, setProduct] = useState<Product>()
@@ -8,7 +9,7 @@ export function useProduct(id: string | undefined) {
       const fetchProduct = async() => {
          try {
             setLoading(true)
-            const res = await fetch(`http://localhost:3000/products/${id}`)
+            const res = await fetch(`${baseUrl}/products/${id}`)
             const data = await res.json()
             setProduct(data.data)
          } catch (err) {
