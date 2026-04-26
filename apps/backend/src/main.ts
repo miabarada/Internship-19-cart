@@ -7,6 +7,7 @@ import { join } from 'path';
 
 console.log('DATABASE_URL:', process.env.DATABASE_URL);
 console.log('JWT', process.env.JWT_SECRET);
+console.log('Dopušteni origin: ', process.env.FRONTEND_URL);
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
